@@ -1,0 +1,48 @@
+
+article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip #%%_ID_%%.eTableTooltip-span.eTableTooltip-span-top::after {
+	content: " ";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	width: 0;
+	border-color: %%_TOOLTIP_BACKGROUND_COLOR_%% transparent transparent transparent;
+}
+
+article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip #%%_ID_%%.eTableTooltip-span.eTableTooltip-span-bottom::after {
+	content: " ";
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	width: 0;
+	border-color: transparent transparent %%_TOOLTIP_BACKGROUND_COLOR_%% transparent;
+}
+
+article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip #%%_ID_%%.eTableTooltip-span.eTableTooltip-span-right::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	right: 100%;
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	height: 0;
+	border-color: transparent %%_TOOLTIP_BACKGROUND_COLOR_%% transparent transparent;
+}
+
+article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip #%%_ID_%%.eTableTooltip-span.eTableTooltip-span-left::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	height: 0;
+	border-color: transparent transparent transparent %%_TOOLTIP_BACKGROUND_COLOR_%%;
+}
