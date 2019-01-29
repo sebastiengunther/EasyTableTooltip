@@ -1,12 +1,14 @@
-define(["client.property-panel/components/components", "client.property-panel/component-utils"],
-function(components, componentUtils){
+define(["client.property-panel/components/components", "client.property-panel/component-utils",
+	"text!./easyneo_transparent.svg"],
+function(components, componentUtils,
+	svg){
 	
-	return function(extension) {
+	return function() {
 		if(!components.hasComponent("EasyAbout")) {
 			let logo = `
 				<div>
-					<a href="https://www.easyneo.fr" target="_blank" title="Click here to learn more about us" style="height:0px; background:#fefefe;">
-						<img src="/extensions/${extension.name}/resources/component/EasyAbout/easyneo_transparent.png" style="width: 96%; height: auto; margin: 0% 2%; padding: 2% 0%; border-bottom: 1px solid #ccc;" />
+					<a href="https://www.easyneo.fr" target="_blank" title="Click here to learn more about us" style="height:0px;">
+						${svg}
 					</a>
 				</div>
 			`;

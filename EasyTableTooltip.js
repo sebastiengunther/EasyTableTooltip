@@ -10,7 +10,7 @@ function(qlik, $, require, qext,
 	'use strict';
 	let extension = JSON.parse(qext);	// Récupération des informations du qext
 	let objects = []; 					// Liste des objets de l'extension sur la page
-	EasyAbout(extension);				// Chargement du component EasyAbout
+	EasyAbout();						// Chargement du component EasyAbout
 	// Fin Partie 1
 	
 	let general = {
