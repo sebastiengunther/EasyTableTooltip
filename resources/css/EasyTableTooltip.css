@@ -21,6 +21,6 @@ article {
     z-index: 2;
 }
 
-article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip:hover {
+article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip:has(span.eTableTooltip-span:not([style*="display: none"])) {
     z-index: 3;
 }
