@@ -62,6 +62,10 @@ function(css, cssByDimension) {
 				span.html(tooltip);
 			}
 
+			if(dimension.eTableTooltip.tooltipWidth != '') {
+				span.css('max-width', dimension.eTableTooltip.tooltipWidth);
+			}
+			
 			span.css({
 				'background-color': dimension.eTableTooltip.tooltipBackgroundColor.color,
 				'color': dimension.eTableTooltip.tooltipTextColor.color,

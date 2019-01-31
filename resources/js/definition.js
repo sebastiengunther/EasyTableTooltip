@@ -123,6 +123,13 @@ define([], function () {
 									}
 								],
 								defaultValue: "center"
+							},
+							tooltipWidth: {
+								ref: "eTableTooltip.tooltipWidth",
+								label: "Tooltip width",
+								type: "string",
+								defaultValue: "300px",
+								expression: "optional"
 							}
 						}
 					}
