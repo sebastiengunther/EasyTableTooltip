@@ -17,7 +17,7 @@ article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip .eTableTooltip-span img {
 	padding: 4px 0;
 }
 
-article {
+article:not(.qv-object-EasyTableTooltip):not(.qv-object-EasyTooltip) {
     z-index: 2;
 }
 
