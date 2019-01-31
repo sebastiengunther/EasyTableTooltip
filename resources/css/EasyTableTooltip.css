@@ -17,14 +17,10 @@ article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip .eTableTooltip-span img {
 	padding: 4px 0;
 }
 
-article:not(.qv-object-EasyTableTooltip):not(.qv-object-EasyTooltip) {
+article {
     z-index: 2;
 }
 
-article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip {
+article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip:hover {
     z-index: 3;
-}
-
-article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip span.eTableTooltip-span {
-	z-index: 5;
 }
