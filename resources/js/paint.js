@@ -106,6 +106,7 @@ function(css, cssByDimension) {
 							tag.removeAttr('title');
 							column.removeAttr('title');
 
+							object.article.css('z-index', 3);
 							span.show();
 
 							if(dimension.eTableTooltip.tooltipPosition == 'left'){
@@ -131,6 +132,7 @@ function(css, cssByDimension) {
 
 						let f2 = function() {
 							span.hide();
+							object.article.css('z-index', 2);
 						};
 
 						column.bind('mouseenter', f1);
