@@ -17,11 +17,18 @@ article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip .eTableTooltip-span img {
 	padding: 4px 0;
 }
 
-article {
+article:not(.qv-object-EasyTableTooltip):not(.qv-object-EasyTooltip) {
     z-index: 2;
 }
 
-article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip span.eTableTooltip-span{
+article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip {
     z-index: 3;
 }
 
+article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip span.eTableTooltip-span {
+	z-index: 4;
+}
+
+article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip div.eTableTooltip-div-text {
+	z-index: 5;
+}
