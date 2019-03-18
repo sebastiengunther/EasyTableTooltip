@@ -5,19 +5,19 @@ function(components, componentUtils,
 	
 	return function() {
 		if(!components.hasComponent("EasyAbout")) {
-			let logo = `
-				<div>
-					<a href="https://www.easyneo.fr" target="_blank" title="Click here to learn more about us" style="height:0px;">
-						${svg}
-					</a>
-				</div>
-			`;
+			let logo = '' +
+				'<div>' +
+					'<a href="https://www.easyneo.fr" target="_blank" title="Click here to learn more about us" style="height:0px;">' +
+						svg +
+					'</a>' +
+				'</div>' +
+			'';
 			
-			let copyright = `
-				<div style="padding:4px;">
-					Copyright EasyNeo, no changes allowed, free to use
-				</div>
-			`;
+			let copyright = '' +
+				'<div style="padding:4px;">' +
+					'Copyright EasyNeo, no changes allowed, free to use' +
+				'</div>' +
+			'';
 
 			let html = logo + copyright;
 			

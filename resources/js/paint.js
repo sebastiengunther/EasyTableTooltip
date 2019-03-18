@@ -22,18 +22,18 @@ function(css, cssByDimension) {
 		object.article = object.div.closest('article');		// Attribution du <ARTICLE> : Contient l'objet
 		object.header = object.article.find('header');		// Attribution du <HEADER> : Contient le titre de l'objet
 		
-		object.article.attr('id', `article-${object.id}`);	// Attribution de l'id au <ARTICLE> (utilisé pour distinguer les objets dans le CSS)
+		object.article.attr('id', 'article-' + object.id);	// Attribution de l'id au <ARTICLE> (utilisé pour distinguer les objets dans le CSS)
 		
-		let style = $(`style#style-${object.id}`);			// Récupération du style de l'objet
+		let style = $('style#style-' + object.id);			// Récupération du style de l'objet
 		if(style.length == 0){								// Si il n'est pas encore défini
 			style = $('<style>');							// On le crée
-			style.attr('id', `style-${object.id}`);			// On lui met un identifiant
+			style.attr('id', 'style-' + object.id);			// On lui met un identifiant
 			style.appendTo('head');							// On l'ajoute au <HEAD>
 		}
 		object.css = css.split('%%_ARTICLE_ID_%%')			// On remplace %%_ARTICLE_ID_%% par l'id du <ARTICLE>
-						   .join(`article-${object.id}`);	// Cela permet de rendre le CSS dynamique (chaque objet à son CSS)
+						   .join('article-' + object.id);	// Cela permet de rendre le CSS dynamique (chaque objet à son CSS)
 		object.cssByDimension = cssByDimension.split('%%_ARTICLE_ID_%%')
-						   .join(`article-${object.id}`);
+						   .join('article-' + object.id);
 		style.html(object.css);								// On défini le style
 		
 		
@@ -78,7 +78,7 @@ function(css, cssByDimension) {
 															 .split('%%_ID_%%')
 															 .join(dimension.cId);
 
-			span.addClass(`eTableTooltip-span-${dimension.eTableTooltip.tooltipPosition}`);
+			span.addClass('eTableTooltip-span-' + dimension.eTableTooltip.tooltipPosition);
 
 			element.append(span);
 			style.append(object.cssByDimensions[i]);
