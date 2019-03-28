@@ -7,7 +7,7 @@
 
 ## About
 
-[EasyTooltip](https://github.com/sebastiengunther/EasyTableTooltip/) is a Qlik Sense extension, which allows you to add tooltip on Qlik table columns.
+[EasyTableTooltip](https://github.com/sebastiengunther/EasyTableTooltip/) is a Qlik Sense extension, which allows you to add tooltip on Qlik table columns.
 <br/>
 It can contain text or image URL. It's possible to use expression.
 <br/>
