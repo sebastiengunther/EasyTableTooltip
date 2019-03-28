@@ -72,7 +72,7 @@ This extension is developped by [EasyNeo](https://www.easyneo.fr/).
       * __Bottom__ : the tooltip will be at the bottom of the column title
       <br/>
       
-    * `Horizontal tooltip position` (select)
+    * `Tooltip alignement` (select)
       * It's the alignement of the text in the tooltip
       * __Left__ : the text will be left align
       * __Center__ : the text will be center align
