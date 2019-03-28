@@ -38,15 +38,15 @@ This extension is developped by [EasyNeo](https://www.easyneo.fr/).
 
     * `Field` (string, can be an expression)
       * It's the name of the column in the Qlik table
-      > Note that the `Field` of the dimension must be exactly the same as the data column name in the Qlik table <br/>
-      > For example, the "Field" can be "Sum(Value)"
+        > Note that the `Field` of the dimension must be exactly the same as the data column name in the Qlik table <br/>
+        > For example, the "Field" can be "Sum(Value)"
       <br/>
       
     * `Tooltip` (string, can be an expression)
       * It's the tooltip that will be display on the Qlik table column
       <br/>
       
-    * `Tooltip Type` (select)
+    * `Tooltip type` (select)
       * It's the type of the tooltip
       * __Text__ : the `Tooltip` is interpreted as HTML
       * __Image__ : the `Tooltip` is interpreted as an image URL
@@ -81,7 +81,7 @@ This extension is developped by [EasyNeo](https://www.easyneo.fr/).
       
     * `Tooltip width` (string, can be an expression)
       * It's the max width of the tooltip
-      > Note that if the `Width` is too small for the text, then the text will go on the line
+        > Note that if the `Width` is too small for the text, then the text will go on the line
       <br/>
 
 5. Finally, you can quit the edit mode and put your mouse on the Qlik table column title.
