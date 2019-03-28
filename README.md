@@ -28,13 +28,13 @@ This extension is developped by [EasyNeo](https://www.easyneo.fr/).
 1. First of all, download the extension and import it.
   <br/>
 
-2. Next, open the application and sheet that contains your Qlik table on which you want to use [EasyTableTooltip](https://github.com/sebastiengunther/EasyTableTooltip/).
+2. Open the application and sheet that contains your Qlik table on which you want to use [EasyTableTooltip](https://github.com/sebastiengunther/EasyTableTooltip/).
   <br/>
 
-3. Then, add the extension on the sheet (it's transparent, because it displays nothing in the object).
+3. Add the extension on the sheet (it's transparent, because it displays nothing in the object).
   <br/>
 
-4. After, edit the extension object and add a new dimension.
+4. Then, edit the extension object and add a new dimension.
 
     * `Field` (string, can be an expression)
       * It's the name of the column in the Qlik table
@@ -74,9 +74,9 @@ This extension is developped by [EasyNeo](https://www.easyneo.fr/).
       
     * `Tooltip alignement` (select)
       * It's the alignement of the text in the tooltip
-      * __Left__ : the text will be left align
-      * __Center__ : the text will be center align
-      * __Right__ : the text will be right align
+      * __Left__ : the text will be left aligned
+      * __Center__ : the text will be center aligned
+      * __Right__ : the text will be right aligned
       <br/>
       
     * `Tooltip width` (string, can be an expression)
