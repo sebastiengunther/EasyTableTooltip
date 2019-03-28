@@ -1,5 +1,9 @@
 # EasyTableTooltip
 
+<p align="center">
+  <img src="https://github.com/sebastiengunther/EasyTableTooltip/blob/master/easy-tabletooltip-preview.png?raw=true"/>
+</p>
+<br/>
 
 ## About
 
@@ -9,10 +13,6 @@ It can contain expression as text or image URL.
 <br/>
 This extension is developped by [EasyNeo](https://www.easyneo.fr/).
 <br/>
-<br/>
-<p align="center">
-  <img src="https://github.com/sebastiengunther/EasyTableTooltip/blob/master/easy-tabletooltip-preview.png?raw=true"/>
-</p>
 <br/>
 
 ## Download
