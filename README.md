@@ -84,7 +84,7 @@ This extension is developped by [EasyNeo](https://www.easyneo.fr/).
       > Note that if the `Width` is too small for the text, then the text will go on the line
       <br/>
 
-5. Finally, you can quit edit mode and put your mouse on the Qlik table column title
+5. Finally, you can quit the edit mode and put your mouse on the Qlik table column title
 
 
 <br/>
