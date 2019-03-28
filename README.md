@@ -9,7 +9,7 @@
 
 [EasyTooltip](https://github.com/sebastiengunther/EasyTableTooltip/) is a Qlik Sense extension, which allows you to add tooltip on Qlik table columns.
 <br/>
-It can contain expression as text or image URL.
+It can contain text or image URL. It's possible to use expression.
 <br/>
 This extension is developped by [EasyNeo](https://www.easyneo.fr/).
 <br/>
@@ -28,7 +28,7 @@ This extension is developped by [EasyNeo](https://www.easyneo.fr/).
 1. First of all, download the extension and import it.
   <br/>
 
-2. Next, open the application and sheet that contain your Qlik table on which want to use EasyTableTooltip.
+2. Next, open the application and sheet that contains your Qlik table on which want to use EasyTableTooltip.
   <br/>
 
 3. Then, add the extension on the sheet (it's transparent, because it displays nothing in the object).
