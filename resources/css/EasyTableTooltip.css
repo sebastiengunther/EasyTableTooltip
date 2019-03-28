@@ -3,6 +3,10 @@ article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip .qv-object-nav.inline {
 	display: none;
 }
 
+article#%%_ARTICLE_ID_%% div {
+	background: transparent;
+}
+
 article#%%_ARTICLE_ID_%%.qv-object-EasyTableTooltip .eTableTooltip-span {
 	display: none;  
 	padding: 4px 8px;

@@ -103,11 +103,11 @@ define([], function () {
 								],
 								defaultValue: "bottom"
 							},
-							horizontalTooltipPosition: {
+							tooltipAlignement: {
 								type: "string",
 								component: "dropdown",
-								label: "Horizontal tooltip position",
-								ref: "eTableTooltip.horizontalTooltipPosition",
+								label: "Tooltip alignement",
+								ref: "eTableTooltip.tooltipAlignement",
 								options: [
 									{
 										value: "left",

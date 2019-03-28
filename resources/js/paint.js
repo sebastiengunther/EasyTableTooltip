@@ -69,7 +69,7 @@ function(css, cssByDimension) {
 			span.css({
 				'background-color': dimension.eTableTooltip.tooltipBackgroundColor.color,
 				'color': dimension.eTableTooltip.tooltipTextColor.color,
-				'text-align': dimension.eTableTooltip.horizontalTooltipPosition,
+				'text-align': dimension.eTableTooltip.tooltipAlignement,
 				'font-size': dimension.eTableTooltip.tooltipFontSize
 			});
 
