@@ -28,7 +28,7 @@ This extension is developped by [EasyNeo](https://www.easyneo.fr/).
 1. First of all, download the extension and import it.
   <br/>
 
-2. Open the application and sheet that contains the Qlik table you want to use [EasyTableTooltip] on (https://github.com/sebastiengunther/EasyTableTooltip/).
+2. Open the application and sheet that contains the Qlik table you want to use [EasyTableTooltip](https://github.com/sebastiengunther/EasyTableTooltip/) on.
   <br/>
 
 3. Add the extension on the sheet (it's transparent, because it displays nothing in the object).
