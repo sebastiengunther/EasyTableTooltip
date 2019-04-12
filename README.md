@@ -19,7 +19,7 @@ This extension is developped by [EasyNeo](https://www.easyneo.fr/).
   
 | Version | Date | Compatibility | Link |
 | --- | --- | --- | --- |
-| `v1.0` | 28/03/2019 | Feb 2019 <br/> Nov 2018 <br/> (not tested in earlier versions) | [`Download`](https://github.com/sebastiengunther/EasyTableTooltip/archive/master.zip) |
+| `v1.0` | 28/03/2019 | Feb 2019 <br/> Nov 2018 <br/> (not tested in earlier versions) | [`Download`](https://github.com/sebastiengunther/EasyTableTooltip/archive/v1.0.zip) |
   
 <br/>
 
