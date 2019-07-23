@@ -6,7 +6,7 @@ function(css, cssByDimension) {
 	return function(element, layout, scope, object) {
 		
 		if(object != undefined) {
-			object.columns.foreach(function(column, i) {
+			object.columns.forEach(function(column, i) {
 				column.unbind('mouseenter', object.mouseenter[i]);
 				column.unbind('mouseleave', object.mouseleave[i]);
 			});
@@ -14,6 +14,7 @@ function(css, cssByDimension) {
 		
 		object = {};										// Initialisation de l'objet courant
 		object.columns = [];
+		object.fields = [];
 		object.mouseenter = [];
 		object.mouseleave = [];
 		object.cssByDimensions = [];
@@ -44,110 +45,146 @@ function(css, cssByDimension) {
 		
 		let dimensions = layout.eTableTooltip.dimensionsList;
 		
+		console.log('dimensions');
 		
-		dimensions.forEach(function(dimension, i) {
-			let field = dimension.eTableTooltip.field;
-			let tooltip = dimension.eTableTooltip.tooltip;
-			let span = $('<span>');
-
-			span.addClass('eTableTooltip-span');
-			span.attr('id', dimension.cId);
-
-			if(dimension.eTableTooltip.tooltipType == 'image'){
-				let img = $('<img>');
-				img.attr('src', tooltip);
-				span.append(img);
-			}
-			else {
-				span.html(tooltip);
-			}
-
-			if(dimension.eTableTooltip.tooltipWidth != '') {
-				span.css('max-width', dimension.eTableTooltip.tooltipWidth);
-			}
+		let f0 = function() {
 			
-			span.css({
-				'background-color': dimension.eTableTooltip.tooltipBackgroundColor.color,
-				'color': dimension.eTableTooltip.tooltipTextColor.color,
-				'text-align': dimension.eTableTooltip.tooltipAlignement,
-				'font-size': dimension.eTableTooltip.tooltipFontSize
-			});
+			dimensions.forEach(function(dimension, i) {
+				let field = dimension.eTableTooltip.field;
+				let tooltip = dimension.eTableTooltip.tooltip;
+				let span = $('<span>');
 
-			object.cssByDimensions[i] = object.cssByDimension.split('%%_TOOLTIP_BACKGROUND_COLOR_%%')
-															 .join(dimension.eTableTooltip.tooltipBackgroundColor.color)
-															 .split('%%_ID_%%')
-															 .join(dimension.cId);
+				span.addClass('eTableTooltip-span');
+				span.attr('id', dimension.cId);
 
-			span.addClass('eTableTooltip-span-' + dimension.eTableTooltip.tooltipPosition);
+				if(dimension.eTableTooltip.tooltipType == 'image'){
+					let img = $('<img>');
+					img.attr('src', tooltip);
+					span.append(img);
+				}
+				else {
+					span.html(tooltip);
+				}
 
-			element.append(span);
-			style.append(object.cssByDimensions[i]);
-
-			if(field.length > 0 && tooltip.length > 0){
-				$('.qvt-sheet-container article *').each(function(){
-					
-					let tag = $(this);
-					
-					if(tag.html() == field) {
-
-						let column;
-
-						if(tag.parent().hasClass('lui-button')){
-							column = tag.parent();
-						}
-						else {
-							column = tag.parent().closest('th');
-						}						
-
-						let f1 = function(e) {
-							let left = 0;
-							let top = 0;
-
-							tag.removeAttr('title');
-							column.removeAttr('title');
-
-							object.article.css('z-index', 3);
-							span.show();
-
-							if(dimension.eTableTooltip.tooltipPosition == 'left'){
-								left = column.offset().left - span.width() - 30;
-								top = e.pageY - (span.height() / 2);
-							}
-							else if(dimension.eTableTooltip.tooltipPosition == 'top'){
-								left = e.pageX - (span.width() / 2);
-								top = column.offset().top - span.height() - 20;
-							}
-
-							else if(dimension.eTableTooltip.tooltipPosition == 'right'){
-								left = column.offset().left + column.width() + 15;
-								top = e.pageY - (span.height() / 2);
-							}
-							else if(dimension.eTableTooltip.tooltipPosition == 'bottom'){
-								left = e.pageX - (span.width() / 2);
-								top = column.offset().top + column.height() + 20;
-							}
-
-							span.css({top: top, left: left});
-						};
-
-						let f2 = function() {
-							span.hide();
-							object.article.css('z-index', 2);
-						};
-
-						column.bind('mouseenter', f1);
-
-						column.bind('mouseleave', f2);
-
-						object.columns.push(column);
-						object.mouseenter.push(f1);
-						object.mouseleave.push(f2);
-					}
+				if(dimension.eTableTooltip.tooltipWidth != '') {
+					span.css('max-width', dimension.eTableTooltip.tooltipWidth);
+				}
+				
+				span.css({
+					'background-color': dimension.eTableTooltip.tooltipBackgroundColor.color,
+					'color': dimension.eTableTooltip.tooltipTextColor.color,
+					'text-align': dimension.eTableTooltip.tooltipAlignement,
+					'font-size': dimension.eTableTooltip.tooltipFontSize
 				});
-			}
-		});
+
+				object.cssByDimensions[i] = object.cssByDimension.split('%%_TOOLTIP_BACKGROUND_COLOR_%%')
+																 .join(dimension.eTableTooltip.tooltipBackgroundColor.color)
+																 .split('%%_ID_%%')
+																 .join(dimension.cId);
+
+				span.addClass('eTableTooltip-span-' + dimension.eTableTooltip.tooltipPosition);
+
+				element.append(span);
+				style.append(object.cssByDimensions[i]);
+
+				if(field.length > 0 && tooltip.length > 0){		
+
+					let finished = false;
+						
+					
+					$('.qvt-sheet-container article *').each(function(){
+						
+						let tag = $(this);
+						
+						if(tag.html() == field) {
+
+							let column;
+
+							if(tag.parent().hasClass('lui-button')){
+								column = tag.parent();
+							}
+							else {
+								column = tag.parent().closest('th');
+							}						
+
+							let f1 = function(e) {
+								let left = 0;
+								let top = 0;
+
+								tag.removeAttr('title');
+								column.removeAttr('title');
+
+								object.article.css('z-index', 8);
+								span.show();
+
+								if(dimension.eTableTooltip.tooltipPosition == 'left'){
+									left = column.offset().left - span.width() - 30;
+									top = column.offset().top + (column.height() / 2); //e.pageY - (span.height() / 2);
+								}
+								else if(dimension.eTableTooltip.tooltipPosition == 'top'){
+									left = column.offset().left + (column.width() / 2); //e.pageX - (span.width() / 2);
+									top = column.offset().top - span.height() - 20;
+								}
+
+								else if(dimension.eTableTooltip.tooltipPosition == 'right'){
+									left = column.offset().left + column.width() + 15;
+									top = column.offset().top + (column.height() / 2); //e.pageY - (span.height() / 2);
+								}
+								else if(dimension.eTableTooltip.tooltipPosition == 'bottom'){
+									left = column.offset().left + (column.width() / 2); //e.pageX - (span.width() / 2);
+									top = column.offset().top + column.height() + 20;
+								}
+
+								span.css({top: top, left: left});
+							};
+
+							let f2 = function() {
+								span.hide();
+								object.article.css('z-index', 2);
+							};
+
+							column.bind('mouseenter', f1);
+
+							column.bind('mouseleave', f2);
+
+							object.columns.push(column);
+							object.mouseenter.push(f1);
+							object.mouseleave.push(f2);
+							object.fields.push(field);
+						}
+					});
+				
+				
+					/*if(object != undefined) {
+						let other = {};
+						other.columns = [];
+						other.fields = [];
+						other.mouseenter = [];
+						other.mouseleave = [];
+						
+						object.columns.forEach(function(column, i) {
+							if(object.fields[i] == field) {
+								column.unbind('mouseenter', object.mouseenter[i]);
+								column.unbind('mouseleave', object.mouseleave[i]);
+							}
+							else {
+								other.columns = column;
+								other.fields = object.fields[i];
+								other.mouseenter = object.mouseenter[i];
+								other.mouseleave = object.mouseleave[i];
+							}
+						});
+						object.columns = other.columns;
+						object.fields = other.fields;
+						object.mouseenter = other.mouseenter;
+						object.mouseleave = other.mouseleave;
+					}*/
+				
+				}
+			});
+		}
 		
-		
+		setTimeout(f0, 100);
 		
 		return object;										// Pour finir on retourne l'objet
 		
