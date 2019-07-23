@@ -138,19 +138,19 @@ function(css, cssByDimension) {
 
 								if(dimension.eTableTooltip.tooltipPosition == 'left'){
 									left = column.offset().left - span.width() - 30;
-									top = column.offset().top + (column.height() / 2); //e.pageY - (span.height() / 2);
+									top = column.offset().top + (column.height() / 2) - (span.height() / 2); //e.pageY - (span.height() / 2);
 								}
 								else if(dimension.eTableTooltip.tooltipPosition == 'top'){
-									left = column.offset().left + (column.width() / 2); //e.pageX - (span.width() / 2);
+									left = column.offset().left + (column.width() / 2) - (span.width() / 2); //e.pageX - (span.width() / 2);
 									top = column.offset().top - span.height() - 20;
 								}
 
 								else if(dimension.eTableTooltip.tooltipPosition == 'right'){
 									left = column.offset().left + column.width() + 15;
-									top = column.offset().top + (column.height() / 2); //e.pageY - (span.height() / 2);
+									top = column.offset().top + (column.height() / 2) - (span.height() / 2); //e.pageY - (span.height() / 2);
 								}
 								else if(dimension.eTableTooltip.tooltipPosition == 'bottom'){
-									left = column.offset().left + (column.width() / 2); //e.pageX - (span.width() / 2);
+									left = column.offset().left + (column.width() / 2) - (span.width() / 2); //e.pageX - (span.width() / 2);
 									top = column.offset().top + column.height() + 20;
 								}
 
