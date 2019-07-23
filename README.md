@@ -19,8 +19,8 @@ This extension is developped by [EasyNeo](https://www.easyneo.fr/).
   
 | Version | Date | Compatibility | Link |
 | --- | --- | --- | --- |
-| `v1.1` | 23/07/2019 | Apr 2019 <br/> Feb 2019 <br/> Nov 2018 <br/> (not tested in earlier versions) | [`Download`](https://github.com/sebastiengunther/EasyTableTooltip/archive/v1.1.zip) |
-| `v1.0` | 28/03/2019 | Apr 2019 <br/> Feb 2019 <br/> Nov 2018 <br/> (not tested in earlier versions) | [`Download`](https://github.com/sebastiengunther/EasyTableTooltip/archive/v1.0.zip) |
+| `v1.1.0` | 23/07/2019 | Apr 2019 <br/> Feb 2019 <br/> Nov 2018 <br/> (not tested in earlier versions) | [`Download`](https://github.com/sebastiengunther/EasyTableTooltip/archive/v1.1.0.zip) |
+| `v1.0.0` | 28/03/2019 | Apr 2019 <br/> Feb 2019 <br/> Nov 2018 <br/> (not tested in earlier versions) | [`Download`](https://github.com/sebastiengunther/EasyTableTooltip/archive/v1.0.0.zip) |
   
 <br/>
 
