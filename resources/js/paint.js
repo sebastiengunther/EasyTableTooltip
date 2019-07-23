@@ -45,67 +45,86 @@ function(css, cssByDimension) {
 		
 		let dimensions = layout.eTableTooltip.dimensionsList;
 		
-		console.log('dimensions');
+	
 		
-		let f0 = function() {
+		dimensions.forEach(function(dimension, i) {
+			let field = dimension.eTableTooltip.field;
+			let tooltip = dimension.eTableTooltip.tooltip;
+			let span = $('<span>');
+
+			span.addClass('eTableTooltip-span');
+			span.attr('id', dimension.cId);
+
+			if(dimension.eTableTooltip.tooltipType == 'image'){
+				let img = $('<img>');
+				img.attr('src', tooltip);
+				span.append(img);
+			}
+			else {
+				span.html(tooltip);
+			}
+
+			if(dimension.eTableTooltip.tooltipWidth != '') {
+				span.css('max-width', dimension.eTableTooltip.tooltipWidth);
+			}
 			
-			dimensions.forEach(function(dimension, i) {
-				let field = dimension.eTableTooltip.field;
-				let tooltip = dimension.eTableTooltip.tooltip;
-				let span = $('<span>');
+			span.css({
+				'background-color': dimension.eTableTooltip.tooltipBackgroundColor.color,
+				'color': dimension.eTableTooltip.tooltipTextColor.color,
+				'text-align': dimension.eTableTooltip.tooltipAlignement,
+				'font-size': dimension.eTableTooltip.tooltipFontSize
+			});
 
-				span.addClass('eTableTooltip-span');
-				span.attr('id', dimension.cId);
+			object.cssByDimensions[i] = object.cssByDimension.split('%%_TOOLTIP_BACKGROUND_COLOR_%%')
+															 .join(dimension.eTableTooltip.tooltipBackgroundColor.color)
+															 .split('%%_ID_%%')
+															 .join(dimension.cId);
 
-				if(dimension.eTableTooltip.tooltipType == 'image'){
-					let img = $('<img>');
-					img.attr('src', tooltip);
-					span.append(img);
-				}
-				else {
-					span.html(tooltip);
-				}
+			span.addClass('eTableTooltip-span-' + dimension.eTableTooltip.tooltipPosition);
 
-				if(dimension.eTableTooltip.tooltipWidth != '') {
-					span.css('max-width', dimension.eTableTooltip.tooltipWidth);
-				}
-				
-				span.css({
-					'background-color': dimension.eTableTooltip.tooltipBackgroundColor.color,
-					'color': dimension.eTableTooltip.tooltipTextColor.color,
-					'text-align': dimension.eTableTooltip.tooltipAlignement,
-					'font-size': dimension.eTableTooltip.tooltipFontSize
-				});
+			element.append(span);
+			style.append(object.cssByDimensions[i]);
 
-				object.cssByDimensions[i] = object.cssByDimension.split('%%_TOOLTIP_BACKGROUND_COLOR_%%')
-																 .join(dimension.eTableTooltip.tooltipBackgroundColor.color)
-																 .split('%%_ID_%%')
-																 .join(dimension.cId);
+			if(field.length > 0 && tooltip.length > 0){		
 
-				span.addClass('eTableTooltip-span-' + dimension.eTableTooltip.tooltipPosition);
-
-				element.append(span);
-				style.append(object.cssByDimensions[i]);
-
-				if(field.length > 0 && tooltip.length > 0){		
-
-					let finished = false;
-						
+					
+				let f0 = function() {
+					
+					
+					object.fields = object.fields.map(function(f) {
+						if(f == field){
+							return 'null';
+						}
+						else {
+							return f;
+						}
+					});
+					
 					
 					$('.qvt-sheet-container article *').each(function(){
+
 						
 						let tag = $(this);
 						
 						if(tag.html() == field) {
 
 							let column;
-
+							
 							if(tag.parent().hasClass('lui-button')){
 								column = tag.parent();
 							}
 							else {
 								column = tag.parent().closest('th');
-							}						
+							}			
+
+							
+							
+							let index = object.columns.map(function(c) { return c[0].id;}).indexOf(column[0].id);
+							
+							if(index >= 0) {
+								column = object.columns[index];
+								object.fields[index] = field;
+							}
 
 							let f1 = function(e) {
 								let left = 0;
@@ -147,44 +166,41 @@ function(css, cssByDimension) {
 
 							column.bind('mouseleave', f2);
 
-							object.columns.push(column);
-							object.mouseenter.push(f1);
-							object.mouseleave.push(f2);
-							object.fields.push(field);
-						}
-					});
-				
-				
-					/*if(object != undefined) {
-						let other = {};
-						other.columns = [];
-						other.fields = [];
-						other.mouseenter = [];
-						other.mouseleave = [];
-						
-						object.columns.forEach(function(column, i) {
-							if(object.fields[i] == field) {
-								column.unbind('mouseenter', object.mouseenter[i]);
-								column.unbind('mouseleave', object.mouseleave[i]);
+
+							if(index >= 0) {
+								column.unbind('mouseenter', object.mouseenter[index]);
+								column.unbind('mouseleave', object.mouseleave[index]);
+								object.mouseenter[index] = f1;
+								object.mouseleave[index] = f2;
 							}
 							else {
-								other.columns = column;
-								other.fields = object.fields[i];
-								other.mouseenter = object.mouseenter[i];
-								other.mouseleave = object.mouseleave[i];
+								object.columns.push(column);
+								object.mouseenter.push(f1);
+								object.mouseleave.push(f2);
+								object.fields.push(field);
 							}
-						});
-						object.columns = other.columns;
-						object.fields = other.fields;
-						object.mouseenter = other.mouseenter;
-						object.mouseleave = other.mouseleave;
-					}*/
-				
+							
+						}
+					});
+			
+					let index = -1;
+					while((index = object.fields.indexOf('null')) >= 0){
+						object.columns[index].unbind('mouseenter', object.mouseenter[index]);
+						object.columns[index].unbind('mouseenter', object.mouseenter[index]);
+						object.columns.splice(index, 1);
+						object.fields.splice(index, 1);
+						object.mouseenter.splice(index, 1);
+						object.mouseleave.splice(index, 1);
+					};
+			
 				}
-			});
-		}
+			
+				setInterval(f0, 1000);
+	
+			}
+		});
 		
-		setTimeout(f0, 100);
+		
 		
 		return object;										// Pour finir on retourne l'objet
 		
